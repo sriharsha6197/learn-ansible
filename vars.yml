@@ -14,6 +14,6 @@
   tasks:
     - name: Print task variable
       vars:
-        : Harsha
+        secondVariable: Harsha
       ansible.builtin.debug:
-        msg: "{{ firstVariable }}"
+        msg: "{{ secondVariable }}"
