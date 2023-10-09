@@ -1,0 +1,9 @@
+- name: Print variable
+  hosts: localhost
+  become: yes
+  vars:
+    firstVariable : Sri
+  tasks: 
+    - name: variable
+      ansible.builtin.debug:
+        msg: "{{ firstVariable }}"
