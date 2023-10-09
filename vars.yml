@@ -13,4 +13,9 @@
     - name: Print play variable
       ansible.builtin.debug:
         msg: "{{ firstVariable }}"
+
+    - name: Demo on roles
+      hosts: localhost
+      roles:
+         - demo
       
