@@ -1,0 +1,8 @@
+- name: conditions in ansible
+  hosts: localhost
+  become: yes
+  tasks: 
+    - name: print values according to the condition
+      ansible.builtin.debug:
+        msg: Price of apple is 1$
+        when: fruit == "apple"
