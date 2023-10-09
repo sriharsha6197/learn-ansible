@@ -8,7 +8,7 @@
       vars:
         firstVariable: Harsha
       ansible.builtin.debug:
-        msg: "{{ secondVariable }}"
+        msg: "{{ firstVariable }}"
 
     - name: Print play variable
       ansible.builtin.debug:
