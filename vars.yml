@@ -1,19 +1,15 @@
-- name: Print variable
-  hosts: localhost
-  become: yes
-  vars:
-    firstVariable : Sri
-  tasks: 
-    - name: variable
-      ansible.builtin.debug:
-        msg: "{{ firstVariable }}"
-
 - name: task level vars
   hosts: localhost
   become: yes
+  vars:
+    firstVariable: Sri
   tasks:
     - name: Print task variable
       vars:
-        secondVariable: Harsha
+        firstVariable: Harsha
       ansible.builtin.debug:
         msg: "{{ secondVariable }}"
+
+    - name: Print play variable
+      ansible.builtin.debug:
+        msg: "{{ firstVariable }}"
