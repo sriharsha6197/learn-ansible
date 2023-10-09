@@ -7,3 +7,13 @@
     - name: variable
       ansible.builtin.debug:
         msg: "{{ firstVariable }}"
+
+- name: task level vars
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Print task variable
+      vars:
+        firstVariable: Harsha
+      ansible.builtin.debug:
+        msg: "{{ firstVariable }}"
