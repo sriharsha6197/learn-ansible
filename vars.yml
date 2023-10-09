@@ -13,3 +13,6 @@
     - name: Print play variable
       ansible.builtin.debug:
         msg: "{{ firstVariable }}"
+
+    - name: Roles variables
+      
