@@ -14,8 +14,8 @@
       ansible.builtin.debug:
         msg: "{{ firstVariable }}"
 
-    - name: Demo on role
-      hosts: localhost
-      roles:
-        - demo
+- name: Demo on role
+  hosts: localhost
+  roles:
+    - demo
       
