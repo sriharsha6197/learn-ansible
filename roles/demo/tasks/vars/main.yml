@@ -1,1 +1,3 @@
 firstVariable: Sriharsha Manikonda
+ansible.builtin.debug:
+   msg: "{{ firstVariable }}"
