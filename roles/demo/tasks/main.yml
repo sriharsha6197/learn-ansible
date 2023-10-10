@@ -1,3 +1,2 @@
-- name: Print role variables
-  ansible.builtin.debug:
+ansible.builtin.debug:
   msg: "{{ firstVariable }}"
