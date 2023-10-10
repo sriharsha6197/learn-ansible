@@ -1,6 +1,6 @@
 free
 
-memTotal=$(free | grep Mem | awk '{print$2')
+memTotal=$(free | grep Mem | awk '{print$2}')
 echo $memTotal
 
 memUsed=$(free | grep Mem | awk '{print$3}')
