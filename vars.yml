@@ -17,5 +17,5 @@
 - name: Demo on role
   hosts: localhost
   roles:
-    - demo
+    - demo: /vars/main.yml
       
