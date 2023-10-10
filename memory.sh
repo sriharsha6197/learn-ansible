@@ -9,5 +9,5 @@ echo $memUsed
 memFree=$(free | grep Mem | awk '{print$4}')
 echo $memFree
 
-memFreePercentage=$($memFree / $memTotal * 100)
+memFreePercentage=$(echo $memFree / echo $memTotal * 100)
 echo memFreePercentage
