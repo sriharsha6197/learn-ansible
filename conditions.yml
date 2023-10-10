@@ -2,7 +2,12 @@
   hosts: localhost
   become: yes
   tasks: 
-    - name: print values according to the condition
+    - name: print apple Price
       ansible.builtin.debug:
         msg: Price of apple is 1$
       when: fruit == "apple"
+
+    - name: Print orange Price
+      ansible.builtin.debug:
+        msg: Price of orange is 2$
+      when: fruit == "orange"
