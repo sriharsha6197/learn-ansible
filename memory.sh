@@ -1,3 +1,3 @@
 free
 
-totalMemory=$(free | grep total)
+memTotal=$(free | grep total | awk -F " " {print$1})
