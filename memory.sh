@@ -1,3 +1,3 @@
 free
 
-free | grep total | awk -F " " {print$2}
+free | grep Mem | awk -F " " {print$1}
