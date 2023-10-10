@@ -9,4 +9,4 @@ echo $memUsed
 memFree=$(free | grep Mem | awk '{print$4}')
 echo $memFree
 
-echo $memFree / echo $memTotal | bc
+echo $memFree / $memTotal | bc
