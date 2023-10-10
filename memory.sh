@@ -13,9 +13,9 @@ freePercentage=$(echo "scale=2;$memFree / $memTotal * 100 " | bc -l | awk -F "."
 echo $freePercentage
 
 if [ $freePercentage -le 50 ]; then
- echo \e[31mRed\e[0m
+ echo -e \e[31mRed\e[0m
 elif [ $freePercentage -le 70 ]; then
- echo \e[33mYellow\e[0m
+ echo -e \e[33mYellow\e[0m
 else
- echo \e[31mGreen\e[0m
+ echo -e \e[32mGreen\e[0m
 fi
