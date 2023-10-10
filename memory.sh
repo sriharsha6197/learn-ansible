@@ -1,3 +1,3 @@
 free
 
-totalMemory=$( free | grep total )
+totalMemory=$(free | grep total)
