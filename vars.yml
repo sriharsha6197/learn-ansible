@@ -17,5 +17,6 @@
 - name: Demo on role
   hosts: localhost
   roles:
-    - demo: /roles/demo/vars
+    - demo
+
       
