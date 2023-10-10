@@ -1,1 +1,1 @@
-total=$(free)
+free
