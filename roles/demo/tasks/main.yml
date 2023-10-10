@@ -1,7 +1,3 @@
-- name: Printing variables from role DEMO
-  hosts: all
-  become: yes
-  tasks:
-   - name: Print role variables
-     ansible.builtin.debug:
-     msg: "{{ firstVariable }}"
+- name: Print role variables
+  ansible.builtin.debug:
+  msg: "{{ firstVariable }}"
