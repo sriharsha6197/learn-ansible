@@ -28,14 +28,14 @@
     - name: memory status is green
       ansible.builtin.debug:
         msg: Memory is good
-      when: usedPercentage < 50
+      when: usedPercentage|int < 50
     
-    - name: memory status is yellow
-      ansible.builtin.debug:
-        msg: memory status is average
-      when: usedPercentage < 70 and usedPercentage > 50
+    # - name: memory status is yellow
+    #   ansible.builtin.debug:
+    #     msg: memory status is average
+    #   when: usedPercentage < 70 and usedPercentage > 50
     
-    - name: memory status is red
-      ansible.builtin.debug:
-        msg: memory status is bad
-      when: usedPercentage > 70
+    # - name: memory status is red
+    #   ansible.builtin.debug:
+    #     msg: memory status is bad
+    #   when: usedPercentage > 70
