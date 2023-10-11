@@ -2,40 +2,45 @@
   hosts: localhost
   become: yes
   tasks:
-    - name: Get memory
-      ansible.builtin.shell: free | grep Mem | xargs
-      register: free
 
-    - name: Print free memory
-      ansible.builtin.set_fact:
-        FREE: "{{free.stdout | split(' ')}}"
+      - name: Print facts about nodes
+        ansible.builtin.debug:
+          var: ansible_facts
 
-    - name: Print values according to the index
-      ansible.builtin.set_fact:
-        total: "{{FREE[1]}}"
-        free: "{{FREE[3]}}"
-        freePercentage: "{{FREE[3]|int / FREE[1]|int * 100}}"
-        usedPercentage: "{{ 100 - (FREE[3]|int / FREE[1]|int * 100)}}"
+#     - name: Get memory
+#       ansible.builtin.shell: free | grep Mem | xargs
+#       register: free
 
-    - name: Print free percntage
-      ansible.builtin.debug:
-        msg: "{{freePercentage}}"
+#     - name: Print free memory
+#       ansible.builtin.set_fact:
+#         FREE: "{{free.stdout | split(' ')}}"
+
+#     - name: Print values according to the index
+#       ansible.builtin.set_fact:
+#         total: "{{FREE[1]}}"
+#         free: "{{FREE[3]}}"
+#         freePercentage: "{{FREE[3]|int / FREE[1]|int * 100}}"
+#         usedPercentage: "{{ 100 - (FREE[3]|int / FREE[1]|int * 100)}}"
+
+#     - name: Print free percntage
+#       ansible.builtin.debug:
+#         msg: "{{freePercentage}}"
     
-    - name: Print status of used memory
-      ansible.builtin.debug:
-        msg: "{{usedPercentage}}"
+#     - name: Print status of used memory
+#       ansible.builtin.debug:
+#         msg: "{{usedPercentage}}"
 
-    - name: memory status is green
-      ansible.builtin.debug:
-        msg: Memory is good
-      when: usedPercentage|int < 50
+#     - name: memory status is green
+#       ansible.builtin.debug:
+#         msg: Memory is good
+#       when: usedPercentage|int < 50
     
-    - name: memory status is yellow
-      ansible.builtin.debug:
-        msg: memory status is average
-      when: usedPercentage|int < 70 and usedPercentage|int > 50
+#     - name: memory status is yellow
+#       ansible.builtin.debug:
+#         msg: memory status is average
+#       when: usedPercentage|int < 70 and usedPercentage|int > 50
     
-    - name: memory status is red
-      ansible.builtin.debug:
-        msg: memory status is bad
-      when: usedPercentage|int > 70
+#     - name: memory status is red
+#       ansible.builtin.debug:
+#         msg: memory status is bad
+#       when: usedPercentage|int > 70
