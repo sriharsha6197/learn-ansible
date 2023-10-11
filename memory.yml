@@ -9,10 +9,15 @@
 
       - name: Print total memory of node
         ansible.builtin.debug:
-          msg: "{{ansible_memtotal_mb}}"
+          msg: "{{ ansible_memtotal_mb['real']['total'] }}"
+          
       - name: Print free memory of node
         ansible.builtin.debug:
-          msg: "{{ ansible_memory_mb['real']['free'] }}"        
+          msg: "{{ ansible_memory_mb['real']['free'] }}" 
+
+      - name: Print used memory of node
+        ansible.builtin.debug:
+          msg: "{{ ansible_memory_mb['real']['used'] }}"      
 
 #     - name: Get memory
 #       ansible.builtin.shell: free | grep Mem | xargs
