@@ -14,7 +14,7 @@
       ansible.builtin.set_fact:
         total: "{{FREE[1]}}"
         free: "{{FREE[3]}}"
-        used: "{{free|int / total|int * 100}}"
+        used: "{{total|int / free|int * 100}}"
 
     - name: Print output of a command
       ansible.builtin.debug:
