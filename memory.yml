@@ -15,6 +15,7 @@
         total: "{{FREE[1]}}"
         free: "{{FREE[3]}}"
         freePercentage: "{{FREE[3]|int / FREE[1]|int * 100}}"
+        usedPercentage: "{{ 100 - (FREE[3]|int / FREE[1]|int * 100)}}"
 
     - name: Print output of a command
       ansible.builtin.debug:
