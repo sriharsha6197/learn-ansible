@@ -13,6 +13,7 @@
       - name: Print free memory of node
         ansible.builtin.debug:
           msg: "{{ansible_facts['ansible_memtotal_mb']}}"
+          
 
 #     - name: Get memory
 #       ansible.builtin.shell: free | grep Mem | xargs
