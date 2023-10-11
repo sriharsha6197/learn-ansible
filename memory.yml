@@ -17,4 +17,4 @@
 
     - name: Print output of a command
       ansible.builtin.debug:
-        msg: "{{free/total}}"
+        msg: "{{free/total * 100}}"
