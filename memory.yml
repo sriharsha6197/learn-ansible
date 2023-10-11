@@ -14,7 +14,12 @@
       ansible.builtin.set_fact:
         total: "{{FREE[1]}}"
         free: "{{FREE[3]}}"
+        used: "{{free|int / total|int * 100}}"
 
     - name: Print output of a command
       ansible.builtin.debug:
-        msg: "{{free|int /total|int * 100}}"
+        msg: "{{used}}"
+
+    - name: Print status of used memory
+      ansible.builtin.debug:
+        msg: 
