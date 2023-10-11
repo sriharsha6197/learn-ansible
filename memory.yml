@@ -17,10 +17,25 @@
         freePercentage: "{{FREE[3]|int / FREE[1]|int * 100}}"
         usedPercentage: "{{ 100 - (FREE[3]|int / FREE[1]|int * 100)}}"
 
-    - name: Print free and usedPercentage
+    - name: Print free percntage
       ansible.builtin.debug:
         msg: "{{freePercentage}}"
     
     - name: Print status of used memory
       ansible.builtin.debug:
         msg: "{{usedPercentage}}"
+
+    - name: memory status is green
+      ansible.builtin.debug:
+        msg: Memory is good
+      when: usedPercentage < 50
+    
+    - name: memory status is yellow
+      ansible.builtin.debug:
+        msg: memory status is average
+      when: usedPercentage < 70 and usedPercentage > 50
+    
+    - name: memory status is red
+      ansible.builtin.debug:
+        msg: memory status is bad
+      when: usedPercentage > 70
