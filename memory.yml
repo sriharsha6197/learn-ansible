@@ -20,3 +20,7 @@
     - name: Print free and usedPercentage
       ansible.builtin.debug:
         msg: "{{freePercentage}}"
+    
+    - name: Print status of used memory
+      ansible.builtin.debug:
+        msg: "{{usedPercentage}}"
