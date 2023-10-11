@@ -9,8 +9,8 @@
 
       - name: Print total memory of node
         ansible.builtin.debug:
-          msg: "{{ ansible_memtotal_mb['real']['total'] }}"
-          
+          msg: "{{ ansible_memory_mb['real']['total'] }}"
+
       - name: Print free memory of node
         ansible.builtin.debug:
           msg: "{{ ansible_memory_mb['real']['free'] }}" 
