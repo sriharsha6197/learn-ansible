@@ -10,14 +10,32 @@
       - name: Print total memory of node
         ansible.builtin.debug:
           msg: "{{ ansible_memory_mb['real']['total'] }}"
+        register: total
 
       - name: Print free memory of node
         ansible.builtin.debug:
           msg: "{{ ansible_memory_mb['real']['free'] }}" 
+        register: free
 
       - name: Print used memory of node
         ansible.builtin.debug:
-          msg: "{{ ansible_memory_mb['real']['used'] }}"      
+          msg: "{{ ansible_memory_mb['real']['used'] }}"
+        register: used
+
+      - name: Print status of node green
+        ansible.builtin.debug:
+          msg: Memory status of node is good
+        when: used|int < 50
+
+      - name: Print status of node yellow
+        ansible.builtin.debug:
+          msg: Memory status of node is yellow
+        when: used|int < 70 and used|int > 50
+      
+      - name: Print status of node is red
+        ansible.builtin.debug:
+          msg: Memory status of node is red
+        when: used|int > 70
 
 #     - name: Get memory
 #       ansible.builtin.shell: free | grep Mem | xargs
