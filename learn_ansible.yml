@@ -1,0 +1,4 @@
+- name: learn ansible
+  hosts: localhost
+  roles:
+   - demo
