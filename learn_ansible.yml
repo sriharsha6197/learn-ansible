@@ -29,4 +29,4 @@
 
     - name: print free memory
       ansible.builtin.debug:
-        msg: "print free memory:{{free}}"
+        msg: "print free memory:{{free.stdout}}"
