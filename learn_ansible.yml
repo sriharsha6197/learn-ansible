@@ -24,7 +24,7 @@
   hosts: localhost
   tasks:
     - name: print total memory
-      ansible.builtin.shell: free | grep Mem | awk -F  '{print $1}'
+      ansible.builtin.shell: free | grep Mem
       register: free
 
     - name: print free memory
