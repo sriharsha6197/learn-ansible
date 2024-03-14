@@ -2,3 +2,18 @@
   hosts: localhost
   roles:
    - demo
+
+- name: learn ansible
+  hosts: localhost
+  vars:
+    var1: play level variables
+  tasks:
+   - name: print play level variables
+     ansible.builtin.debug:
+       msg: "variable level is {{var1}}"
+
+   - name: print task level variables
+     vars:
+       var1: task level variables
+     ansible.builtin.debug:
+       msg: "variable level is {{var1}}"
