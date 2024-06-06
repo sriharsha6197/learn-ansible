@@ -1,5 +1,5 @@
 - name: print free memory
-  hosts: all
+  hosts: localhost
   become: yes
   tasks:
     - name: print free memory
