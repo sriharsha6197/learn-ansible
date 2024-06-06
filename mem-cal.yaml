@@ -2,6 +2,9 @@
   hosts: localhost
   become: yes
   tasks:
-    - name: print free memory
+    - name: get free memory
       ansible.builtin.shell: free
       register: free
+    - name: print free memory
+      ansible.builtin.debug:
+        msg: free
