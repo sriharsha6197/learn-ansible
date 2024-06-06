@@ -13,3 +13,11 @@
         var1: task level variable
       ansible.builtin.debug:
         msg: "variable declared is {{ var1 }}"
+
+
+
+- name: variable declaration on roles
+  hosts: localhost
+  become: yes
+  roles:
+    - demo-variables
