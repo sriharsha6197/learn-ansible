@@ -4,10 +4,10 @@
   tasks:
     - name: get memory status
       ansible.builtin.shell: free | grep Mem
-      register: total
+      register: Free
     - name: print total memory
       ansible.builtin.debug:
-        msg: "{{ total.stdout }}"
+        msg: "{{ Free.stdout}}"
     # - name: get used memory status
     #   ansible.builtin.shell: free | grep Mem | awk '{print$3}'
     #   register: used
