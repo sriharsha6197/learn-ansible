@@ -8,7 +8,7 @@
       ansible.builtin.debug:
         msg: "variable declared is {{ var1 }}"
 
-    - nane: print task level variable
+    - name: print task level variable
       var1: task level variable
       ansible.builtin.debug:
         msg: "variable declared is {{ var1 }}"
