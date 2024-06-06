@@ -6,3 +6,8 @@
       ansible.builtin.debug:
         msg: "apple price is 1$"
       when: var == "apple"
+
+    - name: print orange price
+      ansible.builtin.debug:
+        msg: "orange price is 2$"
+      when: var == "orange"
