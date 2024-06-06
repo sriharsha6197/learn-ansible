@@ -1,0 +1,9 @@
+- name: variables declaration learning
+  hosts: localhost
+  become: yes
+  vars:
+    var1: play level variable
+  tasks:
+    - name: print a variable
+      ansible.builtin.debug:
+        msg: "variable declared is {{ var1 }}"
