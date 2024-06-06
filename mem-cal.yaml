@@ -1,3 +1,7 @@
 - name: print free memory
-  ansible.builtin.shell: free
-  register: free
+  hosts: all
+  become: yes
+  tasks:
+    - name: print free memory
+      ansible.builtin.shell: free
+      register: free
