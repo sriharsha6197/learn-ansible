@@ -16,4 +16,4 @@
         msg: "{{ used.stdout }}"
     - name: print free memory status
       ansible.builtin.debug:
-        msg: "{{ total.stdout - used.stdout }}"
+        msg: "{{ total - used }}"
