@@ -7,10 +7,10 @@
       register: total
     - name: print total memory
       ansible.builtin.debug:
-        msg: "{{ total }}"
-    - name: get memory status
+        msg: "{{ total.stdout }}"
+    - name: get used memory status
       ansible.builtin.shell: free | grep Mem | awk '{print$3}'
       register: used       
     - name: print used memory
       ansible.builtin.debug:
-        msg: "{{ used }}"
+        msg: "{{ used.stdout }}"
