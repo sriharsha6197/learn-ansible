@@ -1,0 +1,3 @@
+- name: print free memory
+  ansible.builtin.shell: free
+  register: free
