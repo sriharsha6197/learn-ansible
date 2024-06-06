@@ -3,8 +3,8 @@
   become: yes
   tasks:
     - name: get free memory
-      ansible.builtin.shell: free
-      register: free
+      ansible.builtin.shell: free | grep Mem | awk '{print$2}'
+      register: total
     - name: print free memory
       ansible.builtin.debug:
-        msg: "{{ free.stdout }}"
+        msg: "{{ total }}"
