@@ -3,11 +3,11 @@
   become: yes
   tasks:
     - name: get memory status
-      ansible.builtin.shell: free | grep Mem
+      ansible.builtin.shell: free | grep Mem | xargs
       register: Free
     - name: print total memory
       ansible.builtin.debug:
-        msg: "{{ Free.stdout}}"
+        msg: "{{ Free.stdout | split(' ') }}"
     # - name: get used memory status
     #   ansible.builtin.shell: free | grep Mem | awk '{print$3}'
     #   register: used
