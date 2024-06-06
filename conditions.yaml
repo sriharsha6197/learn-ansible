@@ -1,0 +1,8 @@
+- name: conditions demo on variables
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: print apple price
+      ansible.builtin.debug:
+        msg: "apple price is 1$"
+      when: var == "apple"
