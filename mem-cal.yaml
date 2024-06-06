@@ -3,7 +3,7 @@
   become: yes
   tasks:
     - name: get memory status
-      ansible.builtin.shell: free | grep Mem | awk '{print$2}'
+      ansible.builtin.shell: free | grep Mem
       register: total
     - name: print total memory
       ansible.builtin.debug:
