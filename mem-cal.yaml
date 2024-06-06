@@ -2,9 +2,9 @@
   hosts: localhost
   become: yes
   tasks:
-    - name: get free memory
+    - name: get memory status
       ansible.builtin.shell: free | grep Mem | awk '{print$2}'
       register: total
-    - name: print free memory
+    - name: print total memory
       ansible.builtin.debug:
-        msg: "{{ total }}"
+        msg: "{{ total.stdout }}"
