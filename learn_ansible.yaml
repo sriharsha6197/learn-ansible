@@ -9,6 +9,7 @@
         msg: "variable declared is {{ var1 }}"
 
     - name: print task level variable
-      var1: task level variable
+      vars:
+        var1: task level variable
       ansible.builtin.debug:
         msg: "variable declared is {{ var1 }}"
