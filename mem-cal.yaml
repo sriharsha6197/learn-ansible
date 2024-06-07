@@ -5,9 +5,15 @@
     - name: get memory status
       ansible.builtin.shell: free | grep Mem | xargs
       register: Free
-    - name: print total memory
+    - name: store details of memory
       ansible.builtin.set_fact:
         FREE: "{{ Free.stdout | split(' ') }}"
+    - name: print mem status
+      ansible.builtin.debug:
+        msg: "{{ FREE }}"
+    - name: print total memory
+      ansible.builtin.set_fact:
+        TOTAL: "{{ FREE[1] }}"
     # - name: get used memory status
     #   ansible.builtin.shell: free | grep Mem | awk '{print$3}'
     #   register: used
