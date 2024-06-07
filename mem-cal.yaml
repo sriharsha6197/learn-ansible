@@ -23,24 +23,14 @@
     - name: memory status red
       ansible.builtin.debug:
         msg: "\033[31mMemory status is red\033[0m"
-      when: used_mem_perc > 70
+      when: used_mem_perc|int > 70
 
     - name: memory status orange
       ansible.builtin.debug:
         msg: "\033[33mMemory status is orange\033[0m"
-      when: used_mem_perc > 50 && used_mem_perc < 70
+      when: used_mem_perc|int > 50 && used_mem_perc|int < 70
     
     - name: memory status is green
       ansible.builtin.debug:
         msg: "\033[32mMemory status is green\033[0m"
-      when: used_mem_perc < 50
-
-    # - name: get used memory status
-    #   ansible.builtin.shell: free | grep Mem | awk '{print$3}'
-    #   register: used
-    # - name: print used memory
-    #   ansible.builtin.debug:
-    #     msg: "{{ used.stdout }}"
-    # - name: print free memory status
-    #   ansible.builtin.debug:
-    #     msg: "{{ total - used }}"
+      when: used_mem_perc|int < 50
