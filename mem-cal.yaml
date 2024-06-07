@@ -19,7 +19,7 @@
 
     - name: print available memory
       ansible.builtin.debug:
-        msg: "{{ TOTAL - USED }}"
+        msg: "{{ TOTAL|int - USED|int }}"
 
     # - name: get used memory status
     #   ansible.builtin.shell: free | grep Mem | awk '{print$3}'
