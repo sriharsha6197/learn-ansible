@@ -11,9 +11,16 @@
     - name: print mem status
       ansible.builtin.debug:
         msg: "{{ FREE }}"
-    - name: print total memory
+    - name: store total, used, free memory available
       ansible.builtin.set_fact:
-        TOTAL: "{{ FREE[1] }}"
+        TOTAL: "{{ FREE[1] | int }}"
+        USED: "{{ FREE[2] | int }}"
+        FREE: "{{ FREE[3] | int }}"
+
+    - name: print available memory
+      ansible.builtin.debug:
+        msg: "{{ TOTAL - USED }}"
+
     # - name: get used memory status
     #   ansible.builtin.shell: free | grep Mem | awk '{print$3}'
     #   register: used
