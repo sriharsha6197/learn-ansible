@@ -22,15 +22,15 @@
 
     - name: memory status red
       ansible.builtin.debug:
-        msg: "\033[31mMemory status is red\033[0m"
+        msg: \033[31mMemory status is red\033[0m
       when: used_mem_perc|int > 70
 
     - name: memory status orange
       ansible.builtin.debug:
-        msg: "\033[33mMemory status is orange\033[0m"
+        msg: \033[33mMemory status is orange\033[0m
       when: used_mem_perc|int > 50 && used_mem_perc|int < 70
     
     - name: memory status is green
       ansible.builtin.debug:
-        msg: "\033[32mMemory status is green\033[0m"
+        msg: \033[32mMemory status is green\033[0m
       when: used_mem_perc|int < 50
