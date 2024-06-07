@@ -17,9 +17,8 @@
         USED: "{{ FREE[2] | int }}"
         FREE: "{{ FREE[3] | int }}"
     - name: print used memory percentage
-      ansible.builtin.debug:
-        msg: "{{ 100 - (FREE|int / TOTAL|int * 100) }}"
-      register: used_mem_perc
+      ansible.builtin.set_fact:
+        used_mem_perc: "{{ 100 - (FREE|int / TOTAL|int * 100) }}"
 
     - name: memory status red
       ansible.builtin.debug:
