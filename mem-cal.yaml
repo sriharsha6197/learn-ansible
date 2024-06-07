@@ -6,8 +6,8 @@
       ansible.builtin.shell: free | grep Mem | xargs
       register: Free
     - name: print total memory
-      ansible.builtin.debug:
-        msg: "{{ Free.stdout | split(' ') }}"
+      ansible.builtin.set_fact:
+        FREE: "{{ Free.stdout | split(' ') }}"
     # - name: get used memory status
     #   ansible.builtin.shell: free | grep Mem | awk '{print$3}'
     #   register: used
