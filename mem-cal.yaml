@@ -20,6 +20,9 @@
     - name: print available memory
       ansible.builtin.debug:
         msg: "{{ TOTAL|int - USED|int }}"
+    - name: print available memory percentage
+      ansible.builtin.debug:
+        msg: "{{ (FREE|int / TOTAL|int) * 100 }}"
 
     # - name: get used memory status
     #   ansible.builtin.shell: free | grep Mem | awk '{print$3}'
