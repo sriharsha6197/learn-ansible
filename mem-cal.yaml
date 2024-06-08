@@ -41,7 +41,7 @@
     
     - name: print used memory percentage status
       ansible.builtin.debug: 
-        msg: "{{ used_mem_perc }}"
+        msg: "{{ used_mem_perc|int }}"
 
     - name: memory status is green
       ansible.builtin.debug:
