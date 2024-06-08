@@ -35,6 +35,10 @@
     - name: get metadata about node
       ansible.builtin.setup:
 
+    - name: print free memory of node
+      ansible.builtin.debug:
+        msg: ansible_memory_mb["real"]["free"] | int}}
+
     - name: store used mem percentage
       ansible.builtin.set_fact:
         free_perc: (ansible_memory_mb["real"]["free"] | int/ ansible_memory_mb["real"]["total"] | int) * 100
