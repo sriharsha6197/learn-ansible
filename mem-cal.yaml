@@ -37,11 +37,11 @@
 
     - name: store used mem percentage
       ansible.builtin.set_fact:
-        used_mem_perc: ansible_memory_mb["real"]["used"] / ansible_memory_mb["real"]["total"]  * 100
+        used_mem_perc: ansible_memory_mb["real"]["used"] // ansible_memory_mb["real"]["total"]  * 100
     
     - name: print used memory percentage status
       ansible.builtin.debug: 
-        msg: "{{ used_mem_perc|round|int }}"
+        msg: "{{ used_mem_perc|int }}"
 
     - name: memory status is green
       ansible.builtin.debug:
