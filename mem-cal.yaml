@@ -46,9 +46,9 @@
     - name: memory status orange
       ansible.builtin.debug:
         msg: Memory status is orange
-      when: free_perc>50 and free_perc<70
+      when: free_perc|int>50 and free_perc|int<70
      
     - name: Memory status is green
       ansible.builtin.debug:
         msg: Memory status is green
-      when: free_perc > 50
+      when: free_perc|int> 50
