@@ -37,7 +37,7 @@
 
     - name: store used mem percentage
       ansible.builtin.debug:
-        msg: (ansible_memory_mb["real"]["free"] / ansible_memory_mb["real"]["total"] ) * 100
+        msg: (ansible_memory_mb["real"]["used"] / ansible_memory_mb["real"]["total"] ) * 100
       register: free_perc
 
     - name: memory status is red
@@ -48,9 +48,9 @@
     - name: memory status orange
       ansible.builtin.debug:
         msg: Memory status is orange
-      when: free_perc>50 and free_perc<70
+      when: free_perc|int>50 and free_perc|int<70
      
     - name: Memory status is green
       ansible.builtin.debug:
         msg: Memory status is green
-      when: free_perc> 50
+      when: free_perc|int> 50
