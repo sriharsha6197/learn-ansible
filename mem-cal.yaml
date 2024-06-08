@@ -39,7 +39,7 @@
       ansible.builtin.set_fact:
         used_mem_perc: ansible_memory_mb["real"]["used"] / ansible_memory_mb["real"]["total"]  * 100
 
-    - name: memory status is red
+    - name: memory status is green
       ansible.builtin.debug:
         msg: Memory status is good
       when: (used_mem_perc|int ) < 50
@@ -49,7 +49,7 @@
         msg: Memory status is orange
       when: used_mem_perc|int>50 and used_mem_perc|int<70
      
-    - name: Memory status is green
+    - name: Memory status is red
       ansible.builtin.debug:
         msg: Memory status is green
       when: used_mem_perc|int> 50
