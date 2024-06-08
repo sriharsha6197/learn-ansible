@@ -38,6 +38,9 @@
     - name: store used mem percentage
       ansible.builtin.set_fact:
         free_perc: ansible_memory_mb["real"]["free"] / ansible_memory_mb["real"]["total"] * 100
+    - name: print free percentage
+      ansible,builtin.debug:
+        msg: "{{ free_perc }}"
     - name: memory status is red
       ansible.builtin.debug:
         msg: Memory status is good
